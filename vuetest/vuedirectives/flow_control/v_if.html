@@ -1,0 +1,39 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>디렉티브_흐름제어</title>
+  <style type="text/css">
+    p {
+      border: 4px solid teal;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h3>v-if를 활용한 조건처리</h3>
+    <p v-if="error">에러 발생 : 이미지를 로드하지 못했습니다.</p>
+    <div>주의사항</div>
+    <div>
+      v-if, v-else-if, v-else 디렉티브가 적용된 엘리먼트 사이에 디렉티브와 무관한 엘리먼트 추가되면<br>
+      구문이 정상적으로 작동하지 않음
+    </div>
+    <p v-else-if="appear">
+      <img src="venezia.jpg" alt="베네치아 이미지">
+    </p>
+    <p v-else>에러가 발생하지 않았습니다.</p>
+    <button v-on:click="error = !error">에러 on-off</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+  <script type="text/javascript">
+    new Vue({
+      el : '#app',
+      data : {
+        error: false
+      }
+    })
+  </script>
+</body>
+</html>

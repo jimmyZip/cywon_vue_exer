@@ -1,0 +1,37 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-show</title>
+</head>
+<body>
+  <div id="app">
+    <div v-if="error">에러발생</div>
+    <div v-show="appear">
+      <img src="../image/venezia.jpg" alt="베네치아 이미지">
+    </div>
+    <button v-on:click="errorToggle">에러 on/off</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    new Vue({
+      el: '#app',
+      data: {
+        error: true,
+        appear: false
+      },
+      methods: {
+        errorToggle() {
+          this.error = !this.error;
+          if(this.error == false) {
+            this.appear = true;
+          } else {
+            this.appear = false;
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-for v-on 컬렉션 이벤트처리</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <table class="highlight">
+        <tr class="blue white-text text-darken-4">
+          <th>번호</th>
+          <th>도시</th>
+          <th>동작</th>
+        </tr>
+        <tr v-for="(city, idx) in cities" v-bind:key="city">
+          <td>{{ idx }}</td>
+          <td>{{ city }}</td>
+          <td>
+            <button class="btn" @click="handleEvent(city)">선택</button>
+          </td>
+        </tr>
+      </table>
+      <h4 class="blue-text text-darken-4 left-align">{{ message }}</h4>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    var vm = new Vue({
+
+      el: '#app',
+      data: () => {
+        return {
+          message: '',
+          cities : ['파리','잘츠부르크','베네치아','드레스덴','프라하']
+        }
+      },
+      methods: {
+        handleEvent(inVal) {
+          this.message = `선택된 도시 : ${inVal}`;
+          //매우 중요 :: this.message에 대입될 문자열 안에 param값이 들어가야 하므로
+          //template literal로 감싸줘야 한다. 그레이브 액센트다. 홑따옴표가 절대 아니다
+        }
+      }
+    })
+  </script>
+</body>
+</html>

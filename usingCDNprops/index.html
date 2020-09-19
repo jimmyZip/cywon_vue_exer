@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDN방식_props속성 데이터전달</title>
+    <style type="text/css">
+        #app {
+            background-color: blue;
+            padding: 6px;
+            color: #fff;
+        }
+        .box {
+            background-color: teal;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        {{name}}
+        <child-component v-bind:childmessage="message"></child-component>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        Vue.component("child-component",{
+            props: ['childmessage'],
+            template: `<div class="box">{{childmessage}}</div>`
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'props를 이용한 데이터 전달',
+                message: '부모 컴포넌트로부터 전달'
+            }
+        })
+    </script>
+</body>
+</html>

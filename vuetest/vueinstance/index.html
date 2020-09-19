@@ -1,0 +1,43 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{message}}</p>
+    <p>
+      <button v-on:click="sayHello">확인</button>
+    </p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          message: 'Have a nice day!'
+        }
+      },
+      //methods속성 실습용
+      methods: {
+        sayHello: function() {
+          alert(this.message);
+        }
+      }
+      /*
+        //template 속성 실습용
+        ,template: `<div id="newDiv">
+          <div>첫 번째 div</div>
+          <div>두 번째 div</div>
+          <div>세 번째 div</div>
+        </div>`
+      */
+    });
+    ////위처럼 메서드 형태의 사용이 아닌
+    //data: {message: 'Have a nice day!'} 도 가능
+  </script>
+</body>
+</html>

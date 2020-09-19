@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-model양방향바인딩</title>
+  <style type="text/css"></style>
+</head>
+<body>
+  <div id="app">
+    <label>이름 :</label>
+    <input type="text" v-model="username">
+    <input type="checkbox" v-model="checked">
+    <br>
+    <span>{{ username}}</span>
+    <span>영화보러 같이 갈래? {{checked ? '예' : '아니오'}}</span>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    new Vue({
+      el: '#app',
+      data: {
+        username: '',
+        checked: false
+      }
+    })
+  </script>
+</body>
+</html>

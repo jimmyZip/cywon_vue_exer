@@ -1,0 +1,44 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>스타일적용바인딩</title>
+  <style type="text/css">
+    .applycolor {color: #00f;}
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1 v-bind:class="{'applycolor':applycolor}">
+      h1태그에 동적으로 class 속성 적용
+    </h1>
+    <input
+      type="checkbox"
+      v-model="applycolor"
+    >
+    <span>changing h1's color with checking checkbox</span>
+    <br>
+    <hr>
+    <br>
+    <h2 v-bind:style="headingStyles">
+      h2태그에 다수의 스타일 적용 :style
+    </h2>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    new Vue({
+      el: '#app',
+      data: {
+        applycolor: false,
+        headingStyles: {
+          backgroundColor: '#223d4b',
+          color: '#fff',
+          fontSize: '48px',
+          textAlign: 'center'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

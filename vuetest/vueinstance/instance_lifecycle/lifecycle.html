@@ -1,0 +1,59 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>뷰인스턴스생명주기</title>
+  <style type="text/css">
+    #app {
+      background-color: #223d4b;
+      color: #fff;
+      padding: 1.25rem;
+      margin-bottom: .25rem;
+    }
+    button {
+      margin-bottom: .25rem;
+      background-color: transparent;
+      border: none;
+      border: 1px solid #fff;
+      color: #efefef;
+      font-weight: 900;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>뷰 인스턴스 생명주기 확인</h1>
+    <div>
+      <p>{{ message }}</p>
+    </div>
+    <button @click="changeMsg">메시지바꾸기</button>
+    <button @click="destroyInstance">뷰인스턴스파괴</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        message: '첫 번째 뷰 인스턴스(Vue Instance)'
+      },
+      methods: {
+        changeMsg() {
+          this.message = '모두가 행복했으면 좋겠어요로 메시지를 바꿨지?'
+        },
+        destroyInstance() {
+          this.$destroy()
+        }
+      },
+      beforeCreate() {console.log('beforeCreate');},
+      created() {console.log('created');},
+      beforeMount() {console.log('beforeMount');},
+      mounted() {console.log('mounted');},
+      beforeUpdate() {console.log('beforeUpdate');},
+      updated() {console.log('updated');},
+      destroyed() {console.log('destroyed');}
+    });
+  </script>
+</body>
+</html>

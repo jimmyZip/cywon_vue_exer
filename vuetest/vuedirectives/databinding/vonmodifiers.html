@@ -1,0 +1,96 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>디렉티브_이벤트수식어</title>
+  <style type="text/css">
+    #outer { width: 320px; margin: 5px; height: 120px; }
+    #middle { width: 250px; margin: 5px; padding: 5px; }
+    #inner { margin: 5px; padding: 5px; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- prevent 수식어 예제 추가-->
+    <a href="https://github.com/cywon" v-on:click.prevent="goGithub" target="_blank">github으로 이동</a>
+    <!-- capture수식어 추가 -->
+    <!-- <div id="outer" class="blue white-text text-darken-4" @click.capture="handleClickEvent"> -->
+    <!-- self수식어 추가 -->
+    <!-- <div id="outer" class="blue white-text text-darken-4" @click.self="handleClickEvent"> -->
+    <!--
+    <div id="outer" class="blue white-text text-darken-4" @click="handleClickEvent">
+      Outer -->
+      <!-- capture수식어 추가 -->
+      <!-- <div id="middle" class="teal darken-2" @click.capture="handleClickEvent"> -->
+      <!-- self수식어 추가 -->
+      <!-- <div id="middle" class="teal darken-2" @click.self="handleClickEvent"> -->
+      <!-- self와 capture 동시적용 -->
+      <!--
+      <div id="middle" class="teal darken-2" @click.self.capture="handleClickEvent">
+        Middle -->
+        <!-- click 이벤트에 stop 수식어 추가 -->
+        <!-- <div id="inner" class="cyan" @click.stop="handleClickEvent"> -->
+        <!-- capture수식어 추가 -->
+        <!-- <div id="inner" class="cyan" @click.capture="handleClickEvent"> -->
+        <!-- once수식어 추가 -->
+        <!-- <div id="inner" class="cyan" @click.once="handleClickEvent"> -->
+        <!-- self수식어 추가 -->
+        <!-- <div id="inner" class="cyan" @click.self="handleClickEvent"> -->
+        <!--
+        <div id="inner" class="cyan" @click="handleClickEvent">
+          Inner
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    // 이벤트 버블링과 스탑
+    /*
+      var vm = new Vue({
+        el: '#app',
+        methods: {
+          handleClickEvent($event) {
+            $event.stopPropagation(); //이벤트 버블링 멈춤 메서드
+            console.log(`handleClickEvent target : ${$event.target.id} ` +
+                          ` currentTarget: ${$event.currentTarget.id}`);
+          }
+        }
+      })
+    */
+
+    //이벤트 캡쳐링
+    /*
+    for(let elem of document.querySelectorAll('div')) {
+      elem.addEventListener("click", e => console.log(`Event Capturing: ${elem.id}`), true)
+    }
+    */
+
+    //stop, capture 수식어 예제
+    /*
+    var vm = new Vue({
+      el: '#app',
+      methods: {
+        handleClickEvent($event) {
+          console.log(`handleClickEvent target : ${$event.target.id}` +
+                      `currentTarget : ${$event.currentTarget.id}`
+          );
+        }
+      }
+    })
+    */
+
+    //prevent 수식어 예제
+    var vm = new Vue({
+      el: '#app',
+      methods: {
+        goGithub() {
+          console.log("Anchor 태그 clicked. Github 페이지로 이동")
+        }
+      }
+    })
+  </script>
+</body>
+</html>

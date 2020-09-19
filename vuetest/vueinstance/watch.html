@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h3>Watch 프로퍼티를 이용해 10진수와 2진수간 상호변환 수를 반환하는 프로그램</h3>
+    10진수 : <input type="number" v-model.number="decimal"/>
+    2진수 : <input type="number" v-model.number="binary"/>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        decimal: 0,
+        binary: 0
+      },
+      watch: {
+        decimal: function(val) {
+          this.decimal = val;
+          this.binary = parseInt(val.toString(2));
+        },
+        binary: function(val) {
+          this.binary = val;
+          this.decimal = parseInt(val, 2);
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-on 이벤트처리</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <div class="card-panel teal lighten-2">
+        <!-- ver1 -->
+        <!-- <h5 v-on:click="name= '미세먼지없음'">{{ name }}</h5> -->
+
+        <!-- ver2 -->
+        <h5 @click="name= '미세먼지없음'">{{ name }}</h5>
+      </div>
+      <!-- ver2 추가 -->
+      <div class="card-panel teal lighten-2">
+        <h5 @click="handleEvent">{{ info }}</h5>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    var vm = new Vue({
+
+      el: '#app',
+      /*ver1
+      data: () => {
+        return {
+          name: '미세먼지있음'
+        }
+      }
+      */
+      //ver2
+      data: () => {
+        return {
+          name: '미세먼지있음',
+          info: "이벤트정보"
+        }
+      },
+      methods: {
+        handleEvent($e) {
+          this.info = $e.type;
+          this.name = "미세먼지 끝!";
+        }
+      }
+    })
+  </script>
+</body>
+</html>
