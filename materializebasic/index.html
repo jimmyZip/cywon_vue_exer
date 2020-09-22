@@ -1,0 +1,49 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- CDN방식으로 materialize.css추가 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- material icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>Materialize basic</title>
+</head>
+<body>
+  <!-- basic. how to apply style based on materialize on element -->
+  <div class="teal lighten-1 center-align">
+    Lorem ipsum dolor sit amet.
+  </div>
+  <div class="white-text teal darken-5">
+    Lorem ipsum dolor sit amet.
+  </div>
+  <div class="row">
+    <!-- responsive-img클래스를 적용해 브라우저 크기에 반응하는 이미지 엘리먼트 적용 -->
+    <!-- applying responsive visibility -->
+    <img class="responsive-img hide-on-small-only" src="./img/vienna.jpg" alt="오스트리아 빈 이미지">
+    <!-- 원형, 타원형 반응형 이미지 -->
+    <!-- <img class="circle responsive-img" src="./img/vienna.jpg" alt="오스트리아 빈 이미지"> -->
+  </div>
+  <!-- material-icons -->
+  <div class="row">
+    <i class="material-icons small teal-text">call</i>
+    <i class="material-icons small teal-text">mail</i>
+  </div>
+  <!-- responsive video relative element -->
+  <h3 class="white-text teal darken-5 center-align">responsive video element</h3>
+  <!-- applying responsive visibility -->
+  <div class="row video-container hide-on-small-only hide-on-medium-and-up">
+    <iframe
+      width="1280" height="720"
+      src="https://www.youtube.com/embed/NHwOlkM_quM"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      muted
+    >
+    </iframe>
+  </div>
+
+
+</body>
+</html>
