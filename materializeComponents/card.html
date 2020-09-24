@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>materialize_card</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <!-- card -->
+  <div id="card">
+    <div class="row">
+      <!-- col1 -->
+      <div class="col s12 m4">
+        <div class="card blue darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">파리(Paris)</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, deserunt!</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a fake link</a>
+          </div>
+        </div>
+      </div>
+      <!-- col2 -->
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image">
+            <img src="images/praque.jpg" alt="프라하이미지">
+            <span class="card-title">프라하(Praque)</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a fake link</a>
+          </div>
+        </div>
+      </div>
+      <!-- col3 -->
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="images/vienna.jpg" alt="빈 이미지">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">
+              비엔나(Vienna, Wein)
+              <i class="material-icons right">more-vert</i>
+              <p><a href="#">This is a fake link</a></p>
+            </span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">
+              비엔나, 빈(Vienna, Wein)
+              <i class="material-icons right">close</i>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="card.js"></script>
+</body>
+</html>
