@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <!-- <v-content> -->
+      <!-- v-content deprecated -->
+      <!-- <home></home> -->
+      <!-- <homebutton /> -->
+    <!-- </v-content> -->
+    <v-main>
+      <!-- <home></home> -->
+      <!-- <homebutton /> -->
+      <!-- <homegrid /> -->
+      <!-- <ModalDlg /> -->
+      <LogFormDlg />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import home from './components/Home';
+//import homebutton from './components/Homebutton';
+//import homegrid from './components/Homegrid';
+//import ModalDlg from './components/ModalDlg';
+import LogFormDlg from './components/LogFormDlg';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    //home
+    //homebutton
+    //homegrid
+    //ModalDlg
+    LogFormDlg
+  }
+};
+</script>
