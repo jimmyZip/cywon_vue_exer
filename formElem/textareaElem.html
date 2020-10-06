@@ -1,0 +1,68 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue form textarea _ 영화관람평가</title>
+  <style type="text/css">
+    textarea {
+      display: block;
+      min-width: 400px;
+      height: auto;
+      margin: 10px 0;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      background-color: #a7ffeb;
+      border: 2px solid teal;
+      padding: 5px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <span>관람평가</span><br />
+    <input type="text" v-model="movieReview.user" placeholder="이름을 입력해주세요.">
+    <textarea v-model="movieReview.comment" placeholder="캡틴마블을 본 소감을 남겨주세요."></textarea>
+    <button @click="btnOk">확인</button>
+    <div v-show="dataShow">
+      <ul>
+        <li v-for="(movieReview, idx) in movieReviews" :key="movieReview.idx">
+          <strong>{{ movieReview.user }}</strong> {{ movieReview.comment }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          movieReview: {//movieReview를 object형태로 정의
+            user: '',
+            comment: ''
+          },
+          movieReviews: [],//여러 관람자 리뷰 저장 위해 배열형태의 movieReviews 정의
+          dataShow: false
+        }
+      },
+      methods: {
+        btnOk() {
+          //호출되면서 dataShow값을 true로 변경
+          this.dataShow = true;
+            //v-show디렉티브에 의해 적용한 div에 입력결과 출력하게됨
+          this.movieReviews.push(this.movieReview);
+            //데이터들이 movieReviews 배열에 push()메서드를 이용해 저장됨
+          this.movieReview = {};
+            //movieReview 객체는 초기화됨
+        }
+      }
+    })
+  </script>
+</body>
+</html>

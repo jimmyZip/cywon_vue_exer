@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue form select elem</title>
+</head>
+<body>
+  <div id="app">
+    <select v-model="selectedCity">
+    <!--
+      <select v-model="selectedCity" multiple>
+      다중선택버전
+    -->
+      <option disabled value="">여행하고 싶은 도시를 선택하세요</option>
+      <!-- option element의 disabled속성에 의해 해당 옵션은 선택불가로 placeholder처럼 쓰임 -->
+      <option>Seoul</option>
+      <option>Paris</option>
+      <option>Seattle</option>
+      <option>Venezia</option>
+    </select>
+    <span>선택된 도시 : {{selectedCity}}</span>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        selectedCity: ''
+        //다중선택 버전 :: 선택값을 담을 프로퍼티를 배열형태로
+        //selectedCity: []
+      }
+    })
+  </script>
+</body>
+</html>

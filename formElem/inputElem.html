@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue form input</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="userData.email" placeholder="이메일을 입력하세요.">
+    <input type="text" v-model="userData.password" placeholder="비밀번호를 입력하세요.">
+    <button @click="btnOk">확인</button>
+    <div v-show="dataShow">
+      입력된 이메일 : {{ userData.email }}<br/>
+      입력된 비밀번호 : {{ userData.password }}<br/>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          userData: {
+            email: '',
+            password: ''
+          },
+          dataShow: false
+        }
+      },
+      methods: {
+        btnOk() {
+          //호출되면서 dataShow값을 true로 변경
+          this.dataShow = true;
+            //v-show디렉티브에 의해 적용한 div에 입력결과 출력하게됨
+        }
+      }
+    })
+  </script>
+</body>
+</html>
