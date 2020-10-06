@@ -1,0 +1,43 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue modifier</title>
+</head>
+<body>
+  <div id="app">
+    <!-- trim modifier exam -->
+    <input type="text" v-model.trim="userId" placeholder="아이디를 입력하세요." />
+    <input type="text" v-model.trim="password" placeholder="비밀번호를 입력하세요." />
+    <!-- number modifier exam -->
+    <input type="number" v-model.number="age" placeholder="나이를 입력하세요.">
+    <!-- lazy modifier exam -->
+    <input type="email" v-model.trim.lazy="userMail" placeholder="이메일을 입력하세요.">
+    <button @click="btnOk">확인</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          userId: '',
+          password: '',
+          age: 0,//default value 0(number)
+          userMail: ''
+        }
+      },
+      methods: {
+        btnOk() {
+          console.log("입력한 아이디 : "+this.userId+
+            ", 입력한 비밀번호 : "+this.password+
+            ", 입력한 나이 : "+this.age+
+            ", 입력한 이메일 : "+this.userMail
+          );
+        }
+      }
+    })
+  </script>
+</body>
+</html>
