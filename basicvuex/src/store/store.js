@@ -36,6 +36,14 @@ export default new Vuex.Store({
     goCountry: (state, inCountry) => {
       state.selectedCountry = inCountry;
     }
-  }//,
-  //actions: {}
+  },
+  //actions
+  actions: {
+    reducePrice: context => {
+      context.commit('reducePrice')
+    },
+    goCountry: (context, inCountry) => {
+      context.commit('goCountry', inCountry)
+    }
+  }
 })

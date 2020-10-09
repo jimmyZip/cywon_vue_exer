@@ -29,14 +29,19 @@ export default {
   methods: {
     goCountry(inValue) {
       //this.$store.state.selectedCountry = inValue
-      this.$store.commit('goCountry', inValue)
-      console.log(inValue)
+      //mutation
+      //this.$store.commit('goCountry', inValue)
+      //Vuex actions
+      this.$store.dispatch('goCountry', inValue)
     },
     reducePrice() {
       // this.$store.state.items.forEach(item => {
       //   item.entrance_fee = (item.entrance_fee * 0.8)
       // });
-      this.$store.commit('reducePrice')
+      //mutation
+      //this.$store.commit('reducePrice')
+      //Vuex actions
+      this.$store.dispatch('reducePrice')
     }
   },
   filters: {
