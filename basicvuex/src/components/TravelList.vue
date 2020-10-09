@@ -21,28 +21,32 @@
 
 <script>
 import TravelListDetails from './TravelListDetails'
+import {mapActions} from 'vuex'
 
 export default {
   components: {
     'travellist-details': TravelListDetails
   },
   methods: {
-    goCountry(inValue) {
-      //this.$store.state.selectedCountry = inValue
-      //mutation
-      //this.$store.commit('goCountry', inValue)
-      //Vuex actions
-      this.$store.dispatch('goCountry', inValue)
-    },
-    reducePrice() {
-      // this.$store.state.items.forEach(item => {
-      //   item.entrance_fee = (item.entrance_fee * 0.8)
-      // });
-      //mutation
-      //this.$store.commit('reducePrice')
-      //Vuex actions
-      this.$store.dispatch('reducePrice')
-    }
+    // goCountry(inValue) {
+    //   //this.$store.state.selectedCountry = inValue
+    //   //mutation
+    //   //this.$store.commit('goCountry', inValue)
+    //   //Vuex actions
+    //   this.$store.dispatch('goCountry', inValue)
+    // },
+    // reducePrice() {
+    //   // this.$store.state.items.forEach(item => {
+    //   //   item.entrance_fee = (item.entrance_fee * 0.8)
+    //   // });
+    //   //mutation
+    //   //this.$store.commit('reducePrice')
+    //   //Vuex actions
+    //   this.$store.dispatch('reducePrice')
+    // }
+    ...mapActions(['reducePrice']),
+    ...mapActions(['goCountry'])
+    // ...는 spread연산자 :: 이미 정의된 배열의 아이템들을 가져오거나 기존배열을 확장하는데 사용
   },
   filters: {
     currency(value) { // 화폐 단위를 표시하기 위한 기능

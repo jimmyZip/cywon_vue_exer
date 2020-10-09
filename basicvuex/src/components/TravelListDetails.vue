@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   filters: {
     currency(value) {
@@ -25,17 +26,19 @@ export default {
   },
   computed: {
     //Vuex getters 적용
-    filteredItems() {
-      // return this.$store.getters.items.filter(item => {
-      //   return item.country = this.$store.state.selectedCountry
-      // })
-      return this.$store.getters.filteredItems
-    }
+    // filteredItems() {
+    //   // return this.$store.getters.items.filter(item => {
+    //   //   return item.country = this.$store.state.selectedCountry
+    //   // })
+    //   return this.$store.getters.filteredItems
+    // }
     /*
     filteredItems() {
       return this.$store.state.items.filter( item => {
         return item.country == this.$store.state.selectedCountry
-      })*/
+      })
+    */
+    ...mapGetters(['filteredItems'])
   }
 }
 </script>
