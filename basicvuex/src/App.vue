@@ -8,7 +8,7 @@
 import TravelList from './components/TravelList'
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
     'travel-list': TravelList
   }

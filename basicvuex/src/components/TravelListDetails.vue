@@ -8,7 +8,7 @@
       >
         <span>도시 : {{ item.city }}</span>
         <span>명소 : {{ item.attraction }}</span>
-        <span>요금 : {{ item.entrance_fee | currency }}</span>
+        <span>요금 : {{ item.entrance_fee }}</span>
       </li>
     </ul>
   </div>
@@ -24,11 +24,18 @@ export default {
     }
   },
   computed: {
+    //Vuex getters 적용
+    filteredItems() {
+      // return this.$store.getters.items.filter(item => {
+      //   return item.country = this.$store.state.selectedCountry
+      // })
+      return this.$store.getters.filteredItems
+    }
+    /*
     filteredItems() {
       return this.$store.state.items.filter( item => {
         return item.country == this.$store.state.selectedCountry
-      })
-    }
+      })*/
   }
 }
 </script>

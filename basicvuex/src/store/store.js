@@ -9,13 +9,33 @@ export default new Vuex.Store({
     items: [
       { country: "France", city: "Paris", attraction: "에펠탑", entrance_fee: 10 },
       { country: "Italy", city: "Venezia", attraction: "산마르코 대성당", entrance_fee: 0 },
-      { country: "Aistroa", city: "Salzburg", attraction: "호엔잘츠부르크성", entrance_fee: 15.20 },
+      { country: "Austria", city: "Salzburg", attraction: "호엔잘츠부르크성", entrance_fee: 15.20 },
       { country: "Germany", city: "Frankfurt", attraction: "뢰머광장", entrance_fee: 0 },
       { country: "Netherland", city: "Amsterdam", attraction: "국립미술관", entrance_fee: 17.50 },
     ],
     selectedCountry: ''
   },
-  //getters: {},
-  //mutations: {},
+  //getters
+  getters: {
+    //items 함수는 TravelList 컴포넌트의 computed 프로퍼티에 정의된 함수와 연관
+    items: state => {
+      return state.items
+    },
+    //filteredItems 함수는 TravelListDetails 컴포넌트의 computed 프로퍼티에 정의된 함수와 연관
+    filteredItems: state => {
+      return state.items.filter(item => {return item.country == state.selectedCountry})
+    }
+  },
+  //mutations
+  mutations: {
+    reducePrice: state => {
+      state.items.forEach(item => {
+        item.entrance_fee = item.entrance_fee * 0.8
+      });
+    },
+    goCountry: (state, inCountry) => {
+      state.selectedCountry = inCountry;
+    }
+  }//,
   //actions: {}
 })
