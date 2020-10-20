@@ -5,6 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CDN Axios with JSON-Server</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style type="text/css">
+    a {
+      margin-top: 10px;
+      margin-left: 5px;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
@@ -31,6 +37,24 @@
         </tr>
       </tbody>
     </table>
+    <div v-show="show == true" class="row">
+      <div class="row">
+        <div class="input-field col s2">
+          <input type="text" v-model="employee.id">
+          <label for="id" class="active">번호</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="name" type="text" v-model="employee.name">
+          <label for="name" class="active">이름</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="email" type="text" v-model="employee.email">
+          <label for="email" class="active">이메일</label>
+        </div>
+      </div>
+    </div>
+    <a class="waves-effect" @click="btnOk">확인</a>
+    <a class="waves-effect" @click="btnCancel">취소</a>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
