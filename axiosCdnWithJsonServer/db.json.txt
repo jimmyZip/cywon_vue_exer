@@ -6,9 +6,9 @@
       "email": "kangta@google.com"
     },
     {
-      "id": 2,
-      "name": "김창수",
-      "email": "akaKimGu@google.com"
+      "id": "6",
+      "name": "김가을",
+      "email": "autumnKim@gmail.com"
     }
   ]
 }

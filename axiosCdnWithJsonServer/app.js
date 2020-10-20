@@ -67,6 +67,14 @@ new Vue({
       }).catch((err) => {
         console.log(err);
       })
+    },
+    deleteEmp(id) {
+      axios({method:'delete', url:'http://localhost:3000/employees/'+id})
+      .then((res) => {
+        this.employees.splice(id, 1);
+      }).catch((err) => {
+        console.log(err);
+      })
     }
   }
 })
