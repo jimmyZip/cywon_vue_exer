@@ -21,12 +21,20 @@ new Vue({
   methods: {
     showForm(emp) {
       this.show = true;
+      //PUT 메서드 수정 처리 위해 추가
+      if((emp !== undefined)) {
+        this.employee.id = emp.id;
+        this.employee.name = emp.name;
+        this.employee.email = emp.email;
+        this.isUpdate = true;
+      }
     },
     btnOk() {
       this.send = true;
-      if(this.isUpdate == false) {
-        this.addEmployee();
-      }
+      // if(this.isUpdate == false) {
+      //   this.addEmployee();
+      // }
+      (this.isUpdate == false)? this.addEmployee() : this.updateEmployee(this.employee.id);
     },
     btnCancel() {
       this.show = false;
@@ -47,6 +55,18 @@ new Vue({
         this.show = false;
         this.send = false;
       }
+    },
+    updateEmployee(id) {
+      axios.put('http://localhost:3000/employees/'+id, {
+        "id": this.employee.id,
+        "name": this.employee.name,
+        "email": this.employee.email
+      }).then((res) => {
+        console.log(res);
+        this.isUpdate = false;
+      }).catch((err) => {
+        console.log(err);
+      })
     }
   }
 })
