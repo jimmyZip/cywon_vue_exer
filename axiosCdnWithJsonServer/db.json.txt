@@ -1,0 +1,14 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "강타",
+      "email": "kangta@google.com"
+    },
+    {
+      "id": 2,
+      "name": "김창수",
+      "email": "akaKimGu@google.com"
+    }
+  ]
+}
