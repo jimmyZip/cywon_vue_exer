@@ -101,7 +101,93 @@ export default {
     });
   },
   methods: {
-    //
+    //데이터 추가
+    addContact() {
+      this.dialog = true;
+      this.dialogTitle = "추가";
+      this.contactInfo.register_date = Date.now();
+    },
+    //데이터 수정
+    updateContact(data) {
+      this.dialog = true;
+      this.dialogTitle = "수정";
+      this.contactInfo.contactId = data.contactId;
+      this.contactInfo.name = data.name;
+      this.contactInfo.email = data.email;
+      this.contactInfo.gender = data.gender;
+      this.contactInfo.phone = data.phone;
+      this.contactInfo.register_date = data.register_date;
+    },
+    //데이터 삭제
+    deleteContact(data) {
+      this.dialog = true;
+      this.dialogTitle = "삭제";
+      this.contactInfo.contactId = data.contactId;
+      console.log('deleteContact: ' + data);
+    },
+    //dialog 내의 확인버튼 클릭해 실제 요청 일으키기
+    btnClick($event) {
+      this.dialog = false;
+      if($event.target.innerHTML == "확인") {
+        if(this.dialogTitle == "추가") {
+          axios.post(this.urlinfo, {
+            contactId: this.contactInfo.contactId,
+            name: this.contactInfo.name,
+            email: this.contactInfo.email,
+            gender: this.contactInfo.gender,
+            phone: this.contactInfo.phone
+          }).then(() => {
+            axios.get(this.urlinfo) //서버에 요청
+            .then((res) => {
+              this.items = res.data;
+              alert("연락처 추가 성공");
+            }).catch((err) => {
+              alert('에러 발생: ' + err);
+            });
+          }).catch((err) => {
+            alert('에러 발생: ' + err);
+          });
+        } else if(this.dialogTitle == "수정") {
+          axios.put(this.urlinfo + '/' + this.contactInfo.contactId, {
+            contactId: this.contactInfo.contactId,
+            name: this.contactInfo.name,
+            email: this.contactInfo.email,
+            gender: this.contactInfo.gender,
+            phone: this.contactInfo.phone,
+            register_date: this.contactInfo.register_date
+          }).then(() => {
+            axios.get(this.urlinfo) //서버에 요청
+            .then((res) => {
+              this.items = res.data;
+              alert("업데이트 성공");
+            }).catch((err) => {
+              alert('에러 발생: ' + err);
+            }).catch((err) => {
+              alert('에러 발생: ' + err);
+            });
+          })
+        } else {
+          axios.delete(this.urlinfo + '/' + this.contactInfo.contactId, {
+            data: {contactId: this.contactInfo.contactId}
+          }).then((result) => {
+            console.log("삭제 후 result : "+result); //성공 시
+            axios.get(this.urlinfo) //서버에 요청
+            .then((res) => {
+              this.items = res.data;
+              alert("삭제 성공");
+            }).catch((err) => {
+              alert('삭제 후 데이터 가져오는 중 에러 발생 : '+err);
+            });
+          }).catch((err) => {
+            alert('에러 발생: '+err);
+          });
+        }
+      }
+      //요청 후 contactInfo 초기화
+      this.contactInfo.contactId = null;
+      this.contactInfo.name = null;
+      this.contactInfo.email = null;
+    }
   }
 }
 </script>
