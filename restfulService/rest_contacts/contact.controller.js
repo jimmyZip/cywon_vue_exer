@@ -79,7 +79,7 @@ exports.update = (req, res) => {
 
 //delete
 exports.delete = (req, res) => {
-  Contacts.findOneAndDelete({ contactId: req.params.contactId })
+  Contact.findOneAndDelete({ contactId: req.params.contactId })
   .then( contact => {
     if (!contact) {
       return res.status(404).send({
